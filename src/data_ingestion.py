@@ -16,9 +16,5 @@ os.listdir()
 data = pd.read_csv('creditcard.csv')
 data.head()
 
-<<<<<<< HEAD
-data.describe()
 
-=======
->>>>>>> fab011c1f20e1986f42312e4f5d752c9ac63c8c7
 
