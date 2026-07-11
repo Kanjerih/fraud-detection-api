@@ -4,26 +4,18 @@ import numpy as np
 
 data = pd.read_csv('creditcard.csv')
 data.describe()
-# +
-import seaborn as sns
-
-sns.histplot(data.Time, kde=True)
-
-
-# +
-import seaborn as sns
-
-sns.histplot(data.Class, kde=True)
 # -
+fraud = data[data['Class'] == 1]
+valid = data[data['Class'] == 0]
+outlier_fraction = len(fraud)/float(len(valid))
+print(outlier_fraction)
+print('Fraud Cases: {}'.format(len(data[data['Class'] == 1])))
+print('Valid Transactions: {}'.format(len(data[data['Class'] == 0])))
 
-data.Class
+print("Amount details of the fraudulent transaction")
+fraud.Amount.describe()
 
-data.Amount
-
-sns.histplot(data.Amount, kde =True
-            )
-
-sns.histplot(data.V14, kde =True
-            )
+print("Details of valid transaction")
+valid.Amount.describe()
 
 
