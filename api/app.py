@@ -18,15 +18,14 @@ SCALER_TIME = joblib.load(os.path.join(MODELS_DIR, "scaler_time.pkl"))
 METADATA = joblib.load(os.path.join(MODELS_DIR, "model_metadata.pkl"))
 THRESHOLD = METADATA["threshold"]
 
-# DEBUG: Print out metadata keys to your terminal window on startup
+# DEBUG: Print out metadata keys to terminal window on startup
 print("\n--- METADATA DIAGNOSTICS ---")
 print("Available keys in metadata:", list(METADATA.keys()))
 if hasattr(MODEL, "feature_names_in_"):
     print("Model native features:", list(MODEL.feature_names_in_))
 print("----------------------------\n")
 
-# Hardcoded fallback list matching the exact structure used during your training
-# (Assuming the interaction term was appended at the end after the V features)
+# Hardcoded fallback list
 FALLBACK_FEATURES = (
     ['Time', 'Amount'] + 
     [f'V{i}' for i in range(1, 29)] + 
